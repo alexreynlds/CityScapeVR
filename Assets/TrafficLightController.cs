@@ -31,7 +31,7 @@ public class TrafficLightController : MonoBehaviour
         t3red = t3.Find("Red light").gameObject;
 
         stateTimer = 10.0f;
-        SetState(1);
+        SetState(0);
     }
 
     // Update is called once per frame
@@ -39,7 +39,7 @@ public class TrafficLightController : MonoBehaviour
     {
         if (stateTimer > 0.0f)
         {
-            stateTimer -= Time.deltaTime;
+            // stateTimer -= Time.deltaTime;
         }
         else
         {
