@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 024b696c8aa7c8f4b9f22452339f1a48
+guid: a04c95fc5d480a34ea690df8e2237cfc
 ModelImporter:
   serializedVersion: 22103
   internalIDToNameTable:
@@ -11,182 +11,182 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Bodymat
-    second: {fileID: 2100000, guid: 3d31067843e10ab4f82d67fc2201dafb, type: 2}
+    second: {fileID: 2100000, guid: 86d14e536d8c25c43a4d220a79da86aa, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Bottommat
-    second: {fileID: 2100000, guid: d65c482163842834595c157794aba705, type: 2}
+    second: {fileID: 2100000, guid: 29ce3d9d6eb56b345b64891fca16ab08, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Eyewearmat
-    second: {fileID: 2100000, guid: 77080febe043e3244a0ea7c9764c2e86, type: 2}
+    second: {fileID: 2100000, guid: 8c05752ae58b03c4590039cacedeabc6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Hairmat
-    second: {fileID: 2100000, guid: f921256d4d2ddaf4e90fce297960e1b4, type: 2}
+    second: {fileID: 2100000, guid: 011ac6afb3e767842a4c24559bc0b53e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Shoesmat
-    second: {fileID: 2100000, guid: e08cdb6c25958b8458a05bf324db845e, type: 2}
+    second: {fileID: 2100000, guid: e197b0e033989694fad0282375d19c3d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Topmat
-    second: {fileID: 2100000, guid: d45aec73c0ed0a145b4a32b481819a0a, type: 2}
+    second: {fileID: 2100000, guid: cc0652b6e7c759841b37ab2565fcf367, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Body_Diffuse
-    second: {fileID: 2800000, guid: 011786917515cc84480bae3817f8d8ab, type: 3}
+    second: {fileID: 2800000, guid: e52f10b2da1fe4c4d9b2496fe5581876, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Body_Gloss
-    second: {fileID: 2800000, guid: 642c897c82831e9429cfd33133d6c85a, type: 3}
+    second: {fileID: 2800000, guid: 510cd1cd546fb134487bb1aa19cf8f8f, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Body_Normal
-    second: {fileID: 2800000, guid: befa1d88c9b5b91458b7c9fb038f7c44, type: 3}
+    second: {fileID: 2800000, guid: 62d97f9ba0b86044fac490c099687ca7, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Body_Opacity
-    second: {fileID: 2800000, guid: 44f889600ed5a694dbf41ed83f1d83fe, type: 3}
+    second: {fileID: 2800000, guid: efc4bfa0d47e9ff4aa373013d9f66844, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Body_Specular
-    second: {fileID: 2800000, guid: c88355480b379f84bac29046676c392f, type: 3}
+    second: {fileID: 2800000, guid: d4b522522f8b627489e3618470f14c1e, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Bottom_Diffuse
-    second: {fileID: 2800000, guid: 1a12b99bbe3277d479081e3c60633165, type: 3}
+    second: {fileID: 2800000, guid: b90ab5a55073f39468c73de103bda25c, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Bottom_Gloss
-    second: {fileID: 2800000, guid: edb2ee4b1ced3d04ab9e37631b65f58c, type: 3}
+    second: {fileID: 2800000, guid: b45e182c42ce34d4d89a6bf301470a2d, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Bottom_Normal
-    second: {fileID: 2800000, guid: 18a41dbff080c70408ac7f8760f27600, type: 3}
+    second: {fileID: 2800000, guid: 3d18c5369a4b57f408d6cd36cf3e38c2, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Bottom_Opacity
-    second: {fileID: 2800000, guid: 9093780b87c6a2a4cb057cc772193e33, type: 3}
+    second: {fileID: 2800000, guid: 46b56c98ff6cffa4995011e9d72328f3, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Bottom_Specular
-    second: {fileID: 2800000, guid: 655618c3c3a7bc4428ab8d8aebfaa174, type: 3}
+    second: {fileID: 2800000, guid: a101ad6cf5a4e3c43b845ccd6b751c78, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Eyewear_Diffuse
-    second: {fileID: 2800000, guid: 8f7f5784112bf3d44b463adc00419801, type: 3}
+    second: {fileID: 2800000, guid: 42031e91b052d964cb050ab882e09772, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Eyewear_Gloss
-    second: {fileID: 2800000, guid: b418c195bf985824c8bf2d9be795c56d, type: 3}
+    second: {fileID: 2800000, guid: c819b23a182c1ce4fbf61aca79a0faea, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Eyewear_Normal
-    second: {fileID: 2800000, guid: 1a0a72b3af112544699a1c7b329d0b74, type: 3}
+    second: {fileID: 2800000, guid: d07009d52669e724ca80f72dca7d25f8, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Eyewear_Opacity
-    second: {fileID: 2800000, guid: 2ea86c1d97d46d44092321809aa9a352, type: 3}
+    second: {fileID: 2800000, guid: 1cfd53b3e72cbae4fac58c746e60f1d2, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Eyewear_Specular
-    second: {fileID: 2800000, guid: 6258f83c8c2361449a9a73e8acef971f, type: 3}
+    second: {fileID: 2800000, guid: d5f2ede00028fcc4a873eb0c471d9525, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Hair_Diffuse
-    second: {fileID: 2800000, guid: 3e0a8d22fec954d46bdaf7eed84150e2, type: 3}
+    second: {fileID: 2800000, guid: e85b25024f539c84fb61ee89d3326844, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Hair_Gloss
-    second: {fileID: 2800000, guid: 25ea7a73540f3b34da73f8767b3f150a, type: 3}
+    second: {fileID: 2800000, guid: 3a0318114b129c642a5d2b79510bb95a, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Hair_Normal
-    second: {fileID: 2800000, guid: 5f83d7c100537c946b22de3b67af7d93, type: 3}
+    second: {fileID: 2800000, guid: ddadcc0f15c4b1045bf2d9438ffd57db, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Hair_Opacity
-    second: {fileID: 2800000, guid: 91056b8c3aac1cf4c86feab309170a3c, type: 3}
+    second: {fileID: 2800000, guid: fe986e31b2190324bb1ea99031c44a6c, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Hair_Specular
-    second: {fileID: 2800000, guid: 86ce8786cc651724db2b26a43d8da0fa, type: 3}
+    second: {fileID: 2800000, guid: 58a75b85831ecd846a63713ae1c54d5e, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Shoes_Diffuse
-    second: {fileID: 2800000, guid: 6cf575868b6fa7540a5d3bf3b6d60328, type: 3}
+    second: {fileID: 2800000, guid: 61d045b9b1a62c64eb5af2fca3414992, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Shoes_Gloss
-    second: {fileID: 2800000, guid: a2d2eabe5faf6584aabdc08709bd2b29, type: 3}
+    second: {fileID: 2800000, guid: 040f8df6e6a3c8349b0ef9346ed6650b, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Shoes_Normal
-    second: {fileID: 2800000, guid: 695f9d72ce74c894d9131833ac9b0220, type: 3}
+    second: {fileID: 2800000, guid: 1a6317eb56cebb3468eedb6bf7694cbb, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Shoes_Opacity
-    second: {fileID: 2800000, guid: f4e9dd31f173de1479304c2a54a99c4f, type: 3}
+    second: {fileID: 2800000, guid: 0a3794d14bd052e4fa7a1426059600cb, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Shoes_Specular
-    second: {fileID: 2800000, guid: c41a69a9b009f4e4790d45a8184b874e, type: 3}
+    second: {fileID: 2800000, guid: afa6ae4764b417640b8b191712539de0, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Top_Diffuse
-    second: {fileID: 2800000, guid: 8a348bf5c59582c40b8b9868e14a220c, type: 3}
+    second: {fileID: 2800000, guid: 49038c72b3418f44cad5bb40275f2769, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Top_Gloss
-    second: {fileID: 2800000, guid: dc1b7a81a1df0f145b50e1c6e2c44e2f, type: 3}
+    second: {fileID: 2800000, guid: 4a20b3d13b7fe0a408d9c7a8f494fd3d, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Top_Normal
-    second: {fileID: 2800000, guid: 46075e2f90e32ac47879a1a0b3152350, type: 3}
+    second: {fileID: 2800000, guid: 5e59dbd51ce20124fa43ce17744aad50, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Top_Opacity
-    second: {fileID: 2800000, guid: 3666599c6d38b9e45bd5773265100e7f, type: 3}
+    second: {fileID: 2800000, guid: b2a5b6c3032d51345b3af89f91006eda, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: female1_Top_Specular
-    second: {fileID: 2800000, guid: 6e5ace2d421526b4ba3088ce11da30a3, type: 3}
+    second: {fileID: 2800000, guid: 7cd12d3cca22ca44eae7e6d17f98fdc5, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -260,8 +260,8 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips:
-  - 591b7c277a464fd47a220dfe2aadf5cc
-  - afe3f965feb0873409a1183f362aba52
+  - 456a455a926ad4a45842b52eef2d5a74
+  - bb1f4a103d5b3ac4d99db5c9882892d0
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
