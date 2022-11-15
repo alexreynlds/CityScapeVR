@@ -9,6 +9,7 @@ public class PedestrianRoute : MonoBehaviour
     public List<Transform> route;
     public int routeNumber = 0;
     public int targetWP = 0;
+    public float dist;
     public Rigidbody rb;
     public bool go = false;
     public float initialDelay;
@@ -26,20 +27,56 @@ public class PedestrianRoute : MonoBehaviour
             wp = GameObject.Find(waypoint);
             wps.Add(wp.transform);
         }
+        rb = GetComponent<Rigidbody>();
         SetRoute();
+        initialDelay = Random.Range(2.0f, 20.0f);
+        transform.position = new Vector3(0.0f, -5.0f, 0.0f);
     }
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!go)
+        {
+            initialDelay -= Time.deltaTime;
+            if (initialDelay <= 0.0f)
+            {
+                go = true;
+                SetRoute();
+            }
+            else return;
+        }
+
         Vector3 displacement = route[targetWP].position - transform.position;
         displacement.y = 0;
-        float dist = displacement.magnitude;
+        dist = displacement.magnitude;
+
+        if (dist < 0.1f)
+        {
+            targetWP++;
+            if (targetWP >= route.Count)
+            {
+                SetRoute();
+                return;
+            }
+        }
+
+        Vector3 velocity = displacement;
+        velocity.Normalize();
+        velocity *= 2.5f;
+        // Apply new velocity
+        Vector3 newPos = transform.position;
+        newPos += velocity * Time.deltaTime;
+        rb.MovePosition(newPos);
+
+        Vector3 forwardDir = Vector3.RotateTowards(transform.forward, velocity, 10.0f * Time.deltaTime, 0f);
+        Quaternion rotation = Quaternion.LookRotation(forwardDir);
+        rb.MoveRotation(rotation);
     }
 
     void SetRoute()
     {
         //randomise the next route
-        routeNumber = Random.Range(0, 11);
+        routeNumber = Random.Range(0, 12);
         //set the route waypoints
         if (routeNumber == 0) route = new List<Transform> { wps[0], wps[4], wps[5], wps[6] };
         else if (routeNumber == 1) route = new List<Transform> { wps[0], wps[4], wps[5], wps[7] };
@@ -56,7 +93,7 @@ public class PedestrianRoute : MonoBehaviour
 
         //initialise position and waypoint counter
         transform.position = new Vector3(route[0].position.x, 0.0f,
-       route[0].position.z);
+        route[0].position.z);
         targetWP = 1;
     }
 }
