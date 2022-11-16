@@ -8,7 +8,7 @@ public class CarRoute : MonoBehaviour
     public List<Transform> route;
     public int routeNumber = 0;
     public int targetWP = 0;
-    public float moveSpeed = 6.0f;
+    public float moveSpeed = 8.0f;
     public float dist;
     public Rigidbody rb;
     public bool go = false;
@@ -29,7 +29,7 @@ public class CarRoute : MonoBehaviour
         wps = new List<Transform>();
         GameObject wp;
 
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < 18; i++)
         {
             string waypoint = "CWP" + (i + 1).ToString();
 
@@ -38,7 +38,7 @@ public class CarRoute : MonoBehaviour
         }
         rb = GetComponent<Rigidbody>();
         SetRoute();
-        initialDelay = Random.Range(2.0f, 15.0f);
+        initialDelay = Random.Range(5.0f, 20.0f);
         transform.position = new Vector3(0.0f, -5.0f, 0.0f);
         stopped = false;
     }
@@ -67,12 +67,12 @@ public class CarRoute : MonoBehaviour
             if (targetWP >= route.Count)
             {
                 Transform oldCWP = route[route.Count - 1];
-                SetRoute(oldCWP.name);
+                SetRoute("");
                 return;
             }
         }
 
-        if (route[targetWP - 1].gameObject.name == "CWP8" && route[targetWP].gameObject.name == "CWP5")
+        if (route[targetWP - 1].gameObject.name == "CWP16" && route[targetWP].gameObject.name == "CWP17" || route[targetWP - 1].gameObject.name == "CWP16" && route[targetWP].gameObject.name == "CWP10")
         {
             if (TL1.transform.Find("Green light").gameObject.activeSelf == false)
             {
@@ -83,7 +83,7 @@ public class CarRoute : MonoBehaviour
                 stopped = false;
             }
         }
-        if (route[targetWP - 1].gameObject.name == "CWP4" && route[targetWP].gameObject.name == "CWP5")
+        if (route[targetWP - 1].gameObject.name == "CWP4" && route[targetWP].gameObject.name == "CWP5" || route[targetWP - 1].gameObject.name == "CWP4" && route[targetWP].gameObject.name == "CWP17")
         {
             if (TL2.transform.Find("Green light").gameObject.activeSelf == false)
             {
@@ -94,7 +94,7 @@ public class CarRoute : MonoBehaviour
                 stopped = false;
             }
         }
-        if (route[targetWP - 1].gameObject.name == "CWP6" && route[targetWP].gameObject.name == "CWP5")
+        if (route[targetWP - 1].gameObject.name == "CWP9" && route[targetWP].gameObject.name == "CWP10" || route[targetWP - 1].gameObject.name == "CWP9" && route[targetWP].gameObject.name == "CWP18")
         {
             if (TL3.transform.Find("Green light").gameObject.activeSelf == false)
             {
@@ -120,7 +120,9 @@ public class CarRoute : MonoBehaviour
 
             Vector3 forwardDir = Vector3.RotateTowards(transform.forward, velocity, 10.0f * Time.deltaTime, 0f);
             Quaternion rotation = Quaternion.LookRotation(forwardDir);
+            // gameObject.GetComponent<BoxCollider>().gameObject.SetActive(false);
             rb.MoveRotation(rotation);
+            // gameObject.GetComponent<BoxCollider>().gameObject.SetActive(true);
         }
         else
         {
@@ -133,54 +135,39 @@ public class CarRoute : MonoBehaviour
         if (x == "")
         {
             //randomise the next route
-            routeNumber = Random.Range(0, 5);
+            routeNumber = Random.Range(0, 6);
             //set the route waypoints
-            if (routeNumber == 0) route = new List<Transform> { wps[0], wps[1], wps[2], wps[3], wps[4], wps[5], wps[6] };
-            else if (routeNumber == 1) route = new List<Transform> { wps[0], wps[1], wps[2], wps[3], wps[4], wps[7], wps[8] };
-            else if (routeNumber == 2) route = new List<Transform> { wps[8], wps[7], wps[4], wps[3], wps[2], wps[1], wps[0] };
-            else if (routeNumber == 3) route = new List<Transform> { wps[8], wps[7], wps[4], wps[5], wps[6] };
-            else if (routeNumber == 4) route = new List<Transform> { wps[6], wps[5], wps[4], wps[3], wps[2], wps[1], wps[0] };
-            else if (routeNumber == 5) route = new List<Transform> { wps[6], wps[5], wps[4], wps[7], wps[8] };
+            if (routeNumber == 0) route = new List<Transform> { wps[7], wps[8], wps[17], wps[4], wps[13] };
+            else if (routeNumber == 1) route = new List<Transform> { wps[7], wps[8], wps[17], wps[10], wps[11], wps[12] };
+            else if (routeNumber == 2) route = new List<Transform> { wps[0], wps[1], wps[2], wps[3], wps[4], wps[5], wps[6] };
+            else if (routeNumber == 3) route = new List<Transform> { wps[0], wps[1], wps[2], wps[3], wps[4], wps[13] };
+            else if (routeNumber == 4) route = new List<Transform> { wps[14], wps[15], wps[16], wps[5], wps[6] };
+            else if (routeNumber == 5) route = new List<Transform> { wps[14], wps[15], wps[9], wps[10], wps[11], wps[12] };
 
             //initialise position and waypoint counter
             transform.position = new Vector3(route[0].position.x, 0.0f,
             route[0].position.z);
             targetWP = 1;
         }
-        else
-        {
-            bool routeFound = false;
-            while (!routeFound)
-            {
-                routeNumber = Random.Range(0, 5);
-                string oldWP = "CWP" + x.ToString();
-                if (routeNumber == 0) route = new List<Transform> { wps[0], wps[1], wps[2], wps[3], wps[4], wps[5], wps[6] };
-                else if (routeNumber == 1) route = new List<Transform> { wps[0], wps[1], wps[2], wps[3], wps[4], wps[7], wps[8] };
-                else if (routeNumber == 2) route = new List<Transform> { wps[8], wps[7], wps[4], wps[3], wps[2], wps[1], wps[0] };
-                else if (routeNumber == 3) route = new List<Transform> { wps[8], wps[7], wps[4], wps[5], wps[6] };
-                else if (routeNumber == 4) route = new List<Transform> { wps[6], wps[5], wps[4], wps[3], wps[2], wps[1], wps[0] };
-                else if (routeNumber == 5) route = new List<Transform> { wps[6], wps[5], wps[4], wps[7], wps[8] };
-                // Debug.Log(oldWP);
-                // Debug.Log(route[0]);
 
-                if (route[0].name == x)
-                {
-
-                    transform.position = new Vector3(route[0].position.x, 0.0f, route[0].position.z);
-                    targetWP = 1;
-                    routeFound = true;
-                }
-            }
-        }
     }
     // Stopping the car if its going to collide with a pedestrian
     private void OnTriggerEnter(Collider collision)
     {
-        // if (collision.gameObject.tag == "Pedestrian" || collision.gameObject.tag == "Car")
-        if (collision.gameObject.tag == "Pedestrian")
+        Vector3 dir;
+        if (collision.gameObject.tag == "Pedestrian" || collision.gameObject.tag == "Player")
         {
             currentCollisions.Add(collision);
             stopped = true;
+        }
+        if (collision.gameObject.tag == "Car")
+        {
+            dir = collision.transform.position - transform.position;
+            Debug.Log(dir + " " + collision.gameObject.name);
+            if (dir.z < 0 || dir.x < 0)
+            {
+                stopped = true;
+            }
         }
     }
     private void OnTriggerExit(Collider collision)
