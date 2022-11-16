@@ -15,9 +15,17 @@ public class CarRoute : MonoBehaviour
     public float initialDelay;
     public bool stopped;
     public List<Collider> currentCollisions;
+
+    private GameObject TL1;
+    private GameObject TL2;
+    private GameObject TL3;
     // Start is called before the first frame update
     void Start()
     {
+        TL1 = GameObject.Find("TL1");
+        TL2 = GameObject.Find("TL2");
+        TL3 = GameObject.Find("TL3");
+
         wps = new List<Transform>();
         GameObject wp;
 
@@ -30,7 +38,7 @@ public class CarRoute : MonoBehaviour
         }
         rb = GetComponent<Rigidbody>();
         SetRoute();
-        initialDelay = Random.Range(2.0f, 20.0f);
+        initialDelay = Random.Range(2.0f, 15.0f);
         transform.position = new Vector3(0.0f, -5.0f, 0.0f);
         stopped = false;
     }
@@ -63,6 +71,41 @@ public class CarRoute : MonoBehaviour
                 return;
             }
         }
+
+        if (route[targetWP - 1].gameObject.name == "CWP8" && route[targetWP].gameObject.name == "CWP5")
+        {
+            if (TL1.transform.Find("Green light").gameObject.activeSelf == false)
+            {
+                stopped = true;
+            }
+            else
+            {
+                stopped = false;
+            }
+        }
+        if (route[targetWP - 1].gameObject.name == "CWP4" && route[targetWP].gameObject.name == "CWP5")
+        {
+            if (TL2.transform.Find("Green light").gameObject.activeSelf == false)
+            {
+                stopped = true;
+            }
+            else
+            {
+                stopped = false;
+            }
+        }
+        if (route[targetWP - 1].gameObject.name == "CWP6" && route[targetWP].gameObject.name == "CWP5")
+        {
+            if (TL3.transform.Find("Green light").gameObject.activeSelf == false)
+            {
+                stopped = true;
+            }
+            else
+            {
+                stopped = false;
+            }
+        }
+
         if (!stopped)
         {
             Vector3 velocity = displacement;
