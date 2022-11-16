@@ -2613,6 +2613,7 @@ GameObject:
   - component: {fileID: 3614164300734038236}
   - component: {fileID: 5188063426286336895}
   - component: {fileID: 3471277373366488327}
+  - component: {fileID: 2293178745234518223}
   m_Layer: 0
   m_Name: Pedestrian
   m_TagString: Pedestrian
@@ -2642,7 +2643,7 @@ Transform:
   - {fileID: 8184185557286465077}
   - {fileID: 918239615820191399}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3614164300734038236
 Animator:
@@ -2700,6 +2701,19 @@ MonoBehaviour:
   rb: {fileID: 0}
   go: 0
   initialDelay: 0
+--- !u!65 &2293178745234518223
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8035524753545166876}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.663856, y: 3.1476698, z: 3.3765392}
+  m_Center: {x: 0, y: 0.71395934, z: 0}
 --- !u!1 &8203293142428240544
 GameObject:
   m_ObjectHideFlags: 0

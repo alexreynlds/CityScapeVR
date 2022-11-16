@@ -13,6 +13,8 @@ public class CarRoute : MonoBehaviour
     public Rigidbody rb;
     public bool go = false;
     public float initialDelay;
+    public bool stopped;
+    public List<Collider> currentCollisions;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,7 @@ public class CarRoute : MonoBehaviour
         SetRoute();
         initialDelay = Random.Range(2.0f, 20.0f);
         transform.position = new Vector3(0.0f, -5.0f, 0.0f);
+        stopped = false;
     }
 
     // Update is called once per frame
@@ -60,20 +63,26 @@ public class CarRoute : MonoBehaviour
                 return;
             }
         }
+        if (!stopped)
+        {
+            Vector3 velocity = displacement;
+            velocity.Normalize();
+            velocity *= moveSpeed;
+            // Apply new velocity
+            Vector3 newPos = transform.position;
+            newPos.y = 0.5f;
+            newPos += velocity * Time.deltaTime;
 
-        Vector3 velocity = displacement;
-        velocity.Normalize();
-        velocity *= moveSpeed;
-        // Apply new velocity
-        Vector3 newPos = transform.position;
-        newPos.y = 0.5f;
-        newPos += velocity * Time.deltaTime;
+            rb.MovePosition(newPos);
 
-        rb.MovePosition(newPos);
+            Vector3 forwardDir = Vector3.RotateTowards(transform.forward, velocity, 10.0f * Time.deltaTime, 0f);
+            Quaternion rotation = Quaternion.LookRotation(forwardDir);
+            rb.MoveRotation(rotation);
+        }
+        else
+        {
 
-        Vector3 forwardDir = Vector3.RotateTowards(transform.forward, velocity, 10.0f * Time.deltaTime, 0f);
-        Quaternion rotation = Quaternion.LookRotation(forwardDir);
-        rb.MoveRotation(rotation);
+        }
     }
 
     void SetRoute(string x = "")
@@ -120,6 +129,23 @@ public class CarRoute : MonoBehaviour
                 }
             }
         }
-
+    }
+    // Stopping the car if its going to collide with a pedestrian
+    private void OnTriggerEnter(Collider collision)
+    {
+        // if (collision.gameObject.tag == "Pedestrian" || collision.gameObject.tag == "Car")
+        if (collision.gameObject.tag == "Pedestrian")
+        {
+            currentCollisions.Add(collision);
+            stopped = true;
+        }
+    }
+    private void OnTriggerExit(Collider collision)
+    {
+        currentCollisions.Remove(collision);
+        if (currentCollisions.Count == 0)
+        {
+            stopped = false;
+        }
     }
 }

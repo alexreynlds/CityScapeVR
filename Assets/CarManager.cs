@@ -10,7 +10,7 @@ public class CarManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        carAmount = 0;
+        carAmount = 3;
 
         for (int i = 0; i < carAmount; i++)
         {

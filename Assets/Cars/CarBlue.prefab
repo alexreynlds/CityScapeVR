@@ -3009,9 +3009,10 @@ GameObject:
   - component: {fileID: 5768964563056970801}
   - component: {fileID: 5764621042320910249}
   - component: {fileID: 5764621042320910250}
+  - component: {fileID: 5258021282840171659}
   m_Layer: 0
   m_Name: CarBlue
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3034,7 +3035,7 @@ Transform:
   - {fileID: 5768912158268160743}
   - {fileID: 5769602086673351595}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &5764621042320910249
 Rigidbody:
@@ -3073,6 +3074,21 @@ MonoBehaviour:
   rb: {fileID: 5764621042320910249}
   go: 0
   initialDelay: 0
+  stopped: 0
+  currentCollisions: []
+--- !u!65 &5258021282840171659
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5766275135248546065}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.885145, y: 1.3915229, z: 7.1977053}
+  m_Center: {x: 0, y: 1.2285426, z: 3.888307}
 --- !u!1 &5766329659343605571
 GameObject:
   m_ObjectHideFlags: 0

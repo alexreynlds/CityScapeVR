@@ -479,9 +479,10 @@ GameObject:
   - component: {fileID: 7381152371009731051}
   - component: {fileID: 7376962116131400743}
   - component: {fileID: 7376962116131400742}
+  - component: {fileID: -3006245481858606633}
   m_Layer: 0
   m_Name: CarRed
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -504,7 +505,7 @@ Transform:
   - {fileID: 7381657186988173141}
   - {fileID: 7381415087057199391}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &7376962116131400743
 Rigidbody:
@@ -543,6 +544,21 @@ MonoBehaviour:
   rb: {fileID: 7376962116131400743}
   go: 0
   initialDelay: 0
+  stopped: 0
+  currentCollisions: []
+--- !u!65 &-3006245481858606633
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7378123907735004893}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.885145, y: 1.3915229, z: 7.1977053}
+  m_Center: {x: 0, y: 1.2285426, z: 3.888307}
 --- !u!1 &7378124914486401621
 GameObject:
   m_ObjectHideFlags: 0
