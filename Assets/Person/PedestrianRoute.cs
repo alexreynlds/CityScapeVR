@@ -55,14 +55,17 @@ public class PedestrianRoute : MonoBehaviour
             targetWP++;
             if (targetWP >= route.Count)
             {
-                SetRoute();
+                Transform oldWP = route[route.Count - 1];
+                SetRoute(oldWP.name);
+
                 return;
             }
         }
 
         Vector3 velocity = displacement;
         velocity.Normalize();
-        velocity *= 2.5f;
+        // velocity *= 2.5f;
+        velocity *= 3.0f;
         // Apply new velocity
         Vector3 newPos = transform.position;
         newPos += velocity * Time.deltaTime;
@@ -73,28 +76,59 @@ public class PedestrianRoute : MonoBehaviour
         rb.MoveRotation(rotation);
     }
 
-    void SetRoute()
+    void SetRoute(string x = "")
     {
-        //randomise the next route
-        routeNumber = Random.Range(0, 12);
-        //set the route waypoints
-        if (routeNumber == 0) route = new List<Transform> { wps[0], wps[4], wps[5], wps[6] };
-        else if (routeNumber == 1) route = new List<Transform> { wps[0], wps[4], wps[5], wps[7] };
-        else if (routeNumber == 2) route = new List<Transform> { wps[2], wps[1], wps[4], wps[5], wps[6] };
-        else if (routeNumber == 3) route = new List<Transform> { wps[2], wps[1], wps[4], wps[5], wps[7] };
-        else if (routeNumber == 4) route = new List<Transform> { wps[3], wps[4], wps[5], wps[6] };
-        else if (routeNumber == 5) route = new List<Transform> { wps[3], wps[4], wps[5], wps[7] };
-        else if (routeNumber == 6) route = new List<Transform> { wps[6], wps[5], wps[4], wps[0] };
-        else if (routeNumber == 7) route = new List<Transform> { wps[6], wps[5], wps[4], wps[3] };
-        else if (routeNumber == 8) route = new List<Transform> { wps[6], wps[5], wps[4], wps[1], wps[2] };
-        else if (routeNumber == 9) route = new List<Transform> { wps[7], wps[5], wps[4], wps[0] };
-        else if (routeNumber == 10) route = new List<Transform> { wps[7], wps[5], wps[4], wps[3] };
-        else if (routeNumber == 11) route = new List<Transform> { wps[7], wps[5], wps[4], wps[1], wps[2] };
+        if (x == "")
+        {
+            //randomise the next route
+            routeNumber = Random.Range(0, 12);
+            //set the route waypoints
+            if (routeNumber == 0) route = new List<Transform> { wps[0], wps[4], wps[5], wps[6] };
+            else if (routeNumber == 1) route = new List<Transform> { wps[0], wps[4], wps[5], wps[7] };
+            else if (routeNumber == 2) route = new List<Transform> { wps[2], wps[1], wps[4], wps[5], wps[6] };
+            else if (routeNumber == 3) route = new List<Transform> { wps[2], wps[1], wps[4], wps[5], wps[7] };
+            else if (routeNumber == 4) route = new List<Transform> { wps[3], wps[4], wps[5], wps[6] };
+            else if (routeNumber == 5) route = new List<Transform> { wps[3], wps[4], wps[5], wps[7] };
+            else if (routeNumber == 6) route = new List<Transform> { wps[6], wps[5], wps[4], wps[0] };
+            else if (routeNumber == 7) route = new List<Transform> { wps[6], wps[5], wps[4], wps[3] };
+            else if (routeNumber == 8) route = new List<Transform> { wps[6], wps[5], wps[4], wps[1], wps[2] };
+            else if (routeNumber == 9) route = new List<Transform> { wps[7], wps[5], wps[4], wps[0] };
+            else if (routeNumber == 10) route = new List<Transform> { wps[7], wps[5], wps[4], wps[3] };
+            else if (routeNumber == 11) route = new List<Transform> { wps[7], wps[5], wps[4], wps[1], wps[2] };
 
-        //initialise position and waypoint counter
-        transform.position = new Vector3(route[0].position.x, 0.0f,
-        route[0].position.z);
-        targetWP = 1;
+            //initialise position and waypoint counter
+            transform.position = new Vector3(route[0].position.x, 0.0f,
+            route[0].position.z);
+            targetWP = 1;
+        }
+        else
+        {
+            bool routeFound = false;
+            while (!routeFound)
+            {
+                routeNumber = Random.Range(0, 12);
+                string oldWP = "WP" + x.ToString();
+                if (routeNumber == 0) route = new List<Transform> { wps[0], wps[4], wps[5], wps[6] };
+                else if (routeNumber == 1) route = new List<Transform> { wps[0], wps[4], wps[5], wps[7] };
+                else if (routeNumber == 2) route = new List<Transform> { wps[2], wps[1], wps[4], wps[5], wps[6] };
+                else if (routeNumber == 3) route = new List<Transform> { wps[2], wps[1], wps[4], wps[5], wps[7] };
+                else if (routeNumber == 4) route = new List<Transform> { wps[3], wps[4], wps[5], wps[6] };
+                else if (routeNumber == 5) route = new List<Transform> { wps[3], wps[4], wps[5], wps[7] };
+                else if (routeNumber == 6) route = new List<Transform> { wps[6], wps[5], wps[4], wps[0] };
+                else if (routeNumber == 7) route = new List<Transform> { wps[6], wps[5], wps[4], wps[3] };
+                else if (routeNumber == 8) route = new List<Transform> { wps[6], wps[5], wps[4], wps[1], wps[2] };
+                else if (routeNumber == 9) route = new List<Transform> { wps[7], wps[5], wps[4], wps[0] };
+                else if (routeNumber == 10) route = new List<Transform> { wps[7], wps[5], wps[4], wps[3] };
+                else if (routeNumber == 11) route = new List<Transform> { wps[7], wps[5], wps[4], wps[1], wps[2] };
+
+                if (route[0].name == x)
+                {
+                    transform.position = new Vector3(route[0].position.x, 0.0f, route[0].position.z);
+                    targetWP = 1;
+                    routeFound = true;
+                }
+            }
+        }
     }
 }
 
