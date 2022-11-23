@@ -10,7 +10,7 @@ public class PedestrianManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pedAmount = 8;
+        pedAmount = 6;
 
         for (int i = 0; i < pedAmount; i++)
         {

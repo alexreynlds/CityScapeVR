@@ -8,7 +8,7 @@ public class CarRoute : MonoBehaviour
     public List<Transform> route;
     public int routeNumber = 0;
     public int targetWP = 0;
-    public float moveSpeed = 8.0f;
+    public float moveSpeed = 9.5f;
     public float dist;
     public Rigidbody rb;
     public bool go = false;
@@ -163,7 +163,7 @@ public class CarRoute : MonoBehaviour
         if (collision.gameObject.tag == "Car")
         {
             dir = collision.transform.position - transform.position;
-            Debug.Log(dir + " " + collision.gameObject.name);
+
             if (dir.z < 0 || dir.x < 0)
             {
                 stopped = true;
