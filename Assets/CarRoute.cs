@@ -180,7 +180,7 @@ public class CarRoute : MonoBehaviour
 
     IEnumerator tempDisable(float x)
     {
-        Debug.Log("Delayed");
+        // Debug.Log("Delayed");
         delayed = true;
         gameObject.GetComponent<ConeCollider>().enabled = false;
         yield return new WaitForSeconds(x);
