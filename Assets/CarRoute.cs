@@ -19,12 +19,17 @@ public class CarRoute : MonoBehaviour
     private GameObject TL1;
     private GameObject TL2;
     private GameObject TL3;
+
+    private bool delayed;
+
     // Start is called before the first frame update
     void Start()
     {
         TL1 = GameObject.Find("TL1");
         TL2 = GameObject.Find("TL2");
         TL3 = GameObject.Find("TL3");
+
+        // gameObject.GetComponent<ConeCollider>().enabled = false;
 
         wps = new List<Transform>();
         GameObject wp;
@@ -57,6 +62,11 @@ public class CarRoute : MonoBehaviour
             else return;
         }
 
+        // if (targetWP == 2)
+        // {
+        //     gameObject.GetComponent<ConeCollider>().enabled = true;
+        // }
+
         Vector3 displacement = route[targetWP].position - transform.position;
         displacement.y = 0;
         dist = displacement.magnitude;
@@ -80,6 +90,10 @@ public class CarRoute : MonoBehaviour
             }
             else
             {
+                if (!delayed)
+                {
+                    StartCoroutine(tempDisable(2.5f));
+                }
                 stopped = false;
             }
         }
@@ -91,6 +105,12 @@ public class CarRoute : MonoBehaviour
             }
             else
             {
+
+
+                if (!delayed)
+                {
+                    StartCoroutine(tempDisable(2.5f));
+                }
                 stopped = false;
             }
         }
@@ -102,6 +122,10 @@ public class CarRoute : MonoBehaviour
             }
             else
             {
+                if (!delayed)
+                {
+                    StartCoroutine(tempDisable(2.5f));
+                }
                 stopped = false;
             }
         }
@@ -134,6 +158,7 @@ public class CarRoute : MonoBehaviour
     {
         if (x == "")
         {
+            // gameObject.GetComponent<ConeCollider>().enabled = false;
             //randomise the next route
             routeNumber = Random.Range(0, 6);
             //set the route waypoints
@@ -148,9 +173,21 @@ public class CarRoute : MonoBehaviour
             transform.position = new Vector3(route[0].position.x, 0.0f,
             route[0].position.z);
             targetWP = 1;
+            StartCoroutine(tempDisable(1.5f));
         }
 
     }
+
+    IEnumerator tempDisable(float x)
+    {
+        Debug.Log("Delayed");
+        delayed = true;
+        gameObject.GetComponent<ConeCollider>().enabled = false;
+        yield return new WaitForSeconds(x);
+        gameObject.GetComponent<ConeCollider>().enabled = true;
+        delayed = false;
+    }
+
     // Stopping the car if its going to collide with a pedestrian
     private void OnTriggerEnter(Collider collision)
     {
